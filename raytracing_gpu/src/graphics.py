@@ -101,11 +101,6 @@ class ComputeGraphics(Graphics):
         reflectivity = self.__material.reflectivity
         r,g,b = self.__material.colorRGB
 
-        # Convertir arrays a valores escalares
-        r = float(r[0] if hasattr(r, '__len__') else r)
-        g = float(g[0] if hasattr(g, '__len__') else g)
-        b = float(b[0] if hasattr(b, '__len__') else b)
-
         r = r / 255.0 if r > 1.0 else r
         g = g / 255.0 if g > 1.0 else g
         b = b / 255.0 if b > 1.0 else b

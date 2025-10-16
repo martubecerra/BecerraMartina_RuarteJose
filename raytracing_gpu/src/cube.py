@@ -45,8 +45,9 @@ class Cube(Model):
         ], dtype='i4')
 
 
+        super().__init__(vertices, indices, colors, normals, texcoords) 
         self.__vertices = vertices
-        super().__init__(vertices, indices, colors, normals, texcoords)
+
 
     @property
     def aabb(self):

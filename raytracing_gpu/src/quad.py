@@ -51,8 +51,8 @@ class Quad(Model):
         ], dtype="i4")
 
 
-        self.__vertices = vertices
         super().__init__(vertices, indices, colors= colors, texcoords=texcoords, normals=normals)
+        self.__vertices = vertices
 
     @property
     def aabb(self):

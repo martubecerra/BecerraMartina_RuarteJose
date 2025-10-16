@@ -54,7 +54,7 @@ class RayTracerGPU:
 
         self.compute_shader.set_uniform('cameraPosition', self.camera.position)
         self.compute_shader.set_uniform('inverseViewMatrix', self.camera.get_inverse_view_matrix())
-        self.compute_shader.set_uniform('fov', self.camera.fov)
+        self.compute_shader.set_uniform('fieldOfView', self.camera.fov)
 
     def resize(self, width, height):
         self.width, self.height = width, height

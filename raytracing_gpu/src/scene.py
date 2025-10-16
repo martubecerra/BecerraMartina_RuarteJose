@@ -36,8 +36,7 @@ class Scene:
 
     def render(self):
         self.time += 0.01
-        
-        # Actualizar las matrices de vista y proyección en cada frame
+
         self.view = self.camera.get_view_matrix()
         self.projection = self.camera.get_perspective_matrix()
 

@@ -46,9 +46,9 @@ bool intersectOrientedBox(int objectIndex, vec3 rayOriginWorld, vec3 rayDirectio
     float timeNear, timeFar;
     vec3 boxMinLocal = vec3(-1.0);
     vec3 boxMaxLocal = vec3(1.0);
-    bool intercects = intersectAxisAlignedBox(rayOriginLocal, rayDirectionLocal, boxMinLocal, boxMaxLocal, timeNear, timeFar);
+    bool intersects = intersectAxisAlignedBox(rayOriginLocal, rayDirectionLocal, boxMinLocal, boxMaxLocal, timeNear, timeFar);
    
-    if (!intercects) return false;
+    if (!intersects) return false;
 
     float timeLocal = (timeNear > EPS) ? timeNear : timeFar;
     vec3 hitPositionLocal = rayOriginLocal + rayDirectionLocal * timeLocal;
@@ -175,8 +175,8 @@ void main () {
 
         RayHit hit = traverseBoundingVolumeHierarchy(rayOrigin, rayDirection);
 
-        if (!hit.didHit) {
-            vec3 shadedColor = calculateShading (hit.color, hit.position, hit.normal, -rayDirection);
+        if (hit.didHit) {
+            vec3 shadedColor = calculateShading(hit.color, hit.position, hit.normal, -rayDirection);
             float reflectivity = clamp(hit.reflectivity, 0.0, 1.0);
 
             accumulatedColor += rayThroughput * (1.0 - reflectivity) * shadedColor;
